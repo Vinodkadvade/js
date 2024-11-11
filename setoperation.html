@@ -1,66 +1,55 @@
 <html>
- <head>
- </head>
- <script>
- let setA=new Set(["apple","banana","orange"]);
- let setB=new Set(["apple","pineapple","mango"]);
- function union(setA , setB)
- {
- let unionSet=new Set(setA)
- for(ele of setB)
- {
- unionSet.add(ele);
- }
- return unionSet;
- }
- function intersection(setA,setB)
- {
- let intersectionSet=new Set();
- for(let ele of setB)
- {
- if(setA.has(ele))
- {
- intersectionSet.add(ele)
- }
- }
- return intersectionSet;
- }
- function difference(setA,setB)
- {
- let differenceset=new Set(setA);
- for(let ele of setB)
- {
- differenceset.delete(ele);
- }
- return differenceset;
- }
- function alldifference(setA,setB)
- {
- let differenceset=new Set(setA);
- for(let ele of setB)
- {
- if(setA.has(ele)){
- differenceset.delete(ele);}
- else
- {
-differenceset.add(ele);
- }
- }
- return differenceset;
- }
- document.write(union(setA , setB));
- document.write("<br>");
- document.write(intersection(setA,setB));
- document.write("<br>");
- document.write(difference(setA,setB));
- document.write("<br>");
- document.write(alldifference(setA,setB));
- console.log(union(setA , setB));
- console.log("<br>");
- console.log(intersection(setA,setB));
- console.log("<br>");
- console.log(difference(setA,setB));
- console.log("<br>");
- console.log(alldifference(setA,setB));
- </script>
- </html
+<title>
+Set Operation
+</title>
+
+<script> 
+//Union 
+function union(setA, setB) {
+    let unionSet = new Set(setA);
+    for (let elem of setB) {
+        unionSet.add(elem);
+    }
+    return unionSet;
+}
+
+const setA = new Set(['apple', 'banana', 'cherry']);
+const setB = new Set(['banana', 'date', 'fig']);
+console.log(union(setA, setB)); // Output: Set { 'apple', 'banana', 'cherry', 'date', 'fig' }
+//Intersection
+ function intersection(setA, setB) {
+    let intersectionSet = new Set();
+    for (let elem of setB) {
+        if (setA.has(elem)) {
+            intersectionSet.add(elem);
+        }
+    }
+    return intersectionSet;
+}
+console.log(intersection(setA, setB)); // Output: Set { 'banana' }
+//Difference
+function difference(setA, setB) {
+    let differenceSet = new Set(setA);
+    for (let elem of setB) {
+        differenceSet.delete(elem);
+    }
+    return differenceSet;
+}
+
+console.log(difference(setA, setB)); // Output: Set { 'apple', 'cherry' }
+//Set Difference (Symmetric Difference)
+function symmetricDifference(setA, setB) {
+    let differenceSet = new Set(setA);
+    for (let elem of setB) {
+        if (differenceSet.has(elem)) {
+            differenceSet.delete(elem);
+        } else {
+            differenceSet.add(elem);
+        }
+    }
+    return differenceSet;
+}
+
+console.log(symmetricDifference(setA, setB)); // Output: Set { 'apple', 'cherry', 'date', 'fig' }
+</script>
+</html> 
